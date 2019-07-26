@@ -40,7 +40,7 @@ for (query, queryFeature) in index.items():
     for j in range(0, 10):
         # grab the results (we are using row-major order) and
         # load the result image
-        (imageName, score) = results[j]
+        (score, imageName) = results[j]
         path = os.path.join(args["dataset"], imageName)
         result = cv2.imread(path)
         print("\t{}. {} : {:.3f}".format(j + 1, imageName, score))
@@ -53,9 +53,9 @@ for (query, queryFeature) in index.items():
             montageB[(j - 5) * 166:((j - 5) + 1) * 166, :] = result
 
     # show the results
+    cv2.imshow("Query",queryImage)
     cv2.imshow("Results 1-5", montageA)
     cv2.imshow("Results 6-10", montageB)
     cv2.waitKey(0)
-    cv2.destroyWindow("Results 1-5")
-    cv2.destroyWindow("Results 6-10")
+    cv2.destroyAllWindows()
  
