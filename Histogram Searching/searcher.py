@@ -16,19 +16,19 @@ class Searcher:
             # compute the chi-squared distance between the features
             # in our index and our query features -- using the
             # chi-squared distance which is normally used in the
-            # computer vision field to compute histogram
+            # computer vision field to compare histograms
             d = self.chi2_distance(features, queryFeatures)
 
             # now that we have the distance between the two feature
-            # vectors, we can update the results dictionary -- the
+            # vectors, we can udpate the results dictionary -- the
             # key is the current image ID in the index and the
             # value is the distance we just computed, representing
-            # how 'similar" the image in the index is to our query
+            # how 'similar' the image in the index is to our query
             results[k] = d
 
-        # sort our results, so that the smaller distance (i.e. the
+        # sort our results, so that the smaller distances (i.e. the
         # more relevant images are at the front of the list)
-        results = sorted([(v, k) for (v, k) in results.items()])
+        results = sorted([(v, k) for (k, v) in results.items()])
 
         # return our results
         return results
