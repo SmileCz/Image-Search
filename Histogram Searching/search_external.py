@@ -23,7 +23,7 @@ cv2.imshow("Query", queryImage)
 print("query: {}".format(args["query"]))
 
 # describe the query in the same way that we did in
-# hobbits_and_histogram_index.py -- a 3D RGB histogram with
+# index.py -- a 3D RGB histogram with
 # 8 bins per channel
 desc = RGBHistogram([8, 8, 8])
 queryFeatures = desc.describe(queryImage)
